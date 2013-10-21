@@ -57,16 +57,16 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://tasks.celogeek.com/projects/perl-modules-protected-attributes"
+         "web" : "https://tasks.celogeek.com/projects/moox-protectedattributes"
       },
-      "homepage" : "https://tasks.celogeek.com/projects/perl-modules-protected-attributes",
+      "homepage" : "https://tasks.celogeek.com/projects/moox-protectedattributes",
       "repository" : {
          "type" : "git",
          "url" : "https://github.com/celogeek/MooX-ProtectedAttributes.git",
          "web" : "https://github.com/celogeek/MooX-ProtectedAttributes"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018001"

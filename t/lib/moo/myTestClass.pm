@@ -11,7 +11,9 @@ use Moo;
 use MooX::ProtectedAttributes;
 with 't::lib::moo::myTestClassRole';
 
-protected_has 'foo' => ( is => 'rw' );
+protected_has
+    'foo'  => ( is => 'rw' ),
+    unless => sub  { $ENV{SKIP_WARNING} };
 
 sub baz {789}
 

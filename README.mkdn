@@ -4,7 +4,7 @@ MooX::ProtectedAttributes - Create attribute only usable inside your package
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
@@ -72,10 +72,28 @@ The method provide 2 methods :
     Instead of dying, it will display a DEPRECATED message and run as usual.
     This allow you to alert user of the protected method to fix their program before you forbid the access to the attribute.
 
+- unless attribute option
+
+    You can use the "unless" => sub { $condition } option to your attribute.
+
+    If the condition match, the attribute will not generate any warnings or die
+
+        protect_has "foo" => (is => 'ro'), unless => sub { $ENV{SKIP_WARNING} };
+
+        $myObj->foo # croak
+        
+
+        {
+    	local $ENV{SKIP_WARNING} = 1;
+          $myObj->foo # works
+        }
+
+    You can use it for your test, or may be to match some condition like 'OK if it is call from this package'
+
 # BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://tasks.celogeek.com/projects/perl-modules-protected-attributes
+https://tasks.celogeek.com/projects/moox-protectedattributes
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired

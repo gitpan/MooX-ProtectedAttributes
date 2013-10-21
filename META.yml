@@ -30,10 +30,10 @@ requires:
   strict: 0
   warnings: 0
 resources:
-  bugtracker: https://tasks.celogeek.com/projects/perl-modules-protected-attributes
-  homepage: https://tasks.celogeek.com/projects/perl-modules-protected-attributes
+  bugtracker: https://tasks.celogeek.com/projects/moox-protectedattributes
+  homepage: https://tasks.celogeek.com/projects/moox-protectedattributes
   repository: https://github.com/celogeek/MooX-ProtectedAttributes.git
-version: 0.01
+version: 0.02
 x_Dist_Zilla:
   perl:
     version: 5.018001
