@@ -12,7 +12,7 @@ package MooX::ProtectedAttributes;
 
 use strict;
 use warnings;
-our $VERSION = '0.02';    # VERSION
+our $VERSION = '0.03';    # VERSION
 use Carp;
 
 sub import {
@@ -39,16 +39,16 @@ sub import {
 
             my $caller = caller(2);
 
-            return $self->$orig if $caller eq $target;
+            return $self->$orig if $caller->DOES($target);
 
             if ($deprecated_mode) {
                 carp
-                    "DEPRECATED: You can't use the attribute <$name> outside the package <$target> !";
+                    "DEPRECATED: You can't use the attribute <$name> outside the package <$target> or anyone that consume it!";
                 return $self->$orig;
             }
             else {
                 croak
-                    "You can't use the attribute <$name> outside the package <$target> !";
+                    "You can't use the attribute <$name> outside the package <$target> or anyone that consume it!";
             }
             }
     };
@@ -103,7 +103,7 @@ MooX::ProtectedAttributes - Create attribute only usable inside your package
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -146,7 +146,7 @@ You really want, even with the "_" before your attribute (which mean private), t
 
 The goal of this package is to allow the init of the private attribute, but forbid reading from outside the package.
 
-With a protected attribute named "foo" for example, you can't do this outside the current package :
+With a protected attribute named "foo" for example, you can't do this outside the current package or any package that consume it :
 
   my $foo = $myObj->foo;
 

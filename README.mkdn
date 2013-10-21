@@ -4,7 +4,7 @@ MooX::ProtectedAttributes - Create attribute only usable inside your package
 
 # VERSION
 
-version 0.02
+version 0.03
 
 # SYNOPSIS
 
@@ -47,7 +47,7 @@ You really want, even with the "\_" before your attribute (which mean private), 
 
 The goal of this package is to allow the init of the private attribute, but forbid reading from outside the package.
 
-With a protected attribute named "foo" for example, you can't do this outside the current package :
+With a protected attribute named "foo" for example, you can't do this outside the current package or any package that consume it :
 
     my $foo = $myObj->foo;
 
